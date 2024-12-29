@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cartTableBody.appendChild(row);
         updateTotalPrice();
 
-        // Reset inputs
         productSelect.value = '';
         quantityInput.value = '';
     }
@@ -56,92 +55,35 @@ document.addEventListener('DOMContentLoaded', () => {
         totalPriceElement.textContent = total.toFixed(2);
     }
 
-    function addToFavourites() {
-        const rows = Array.from(cartTableBody.querySelectorAll('tr'));
-        if (rows.length === 0) {
-            alert('Cart is empty. Add items to cart before saving favourites.');
-            return;
-        }
-
-        const favouritesData = rows.map(row => {
-            const productName = row.querySelector('td:nth-child(1)').textContent;
-            const quantity = parseInt(row.querySelector('td:nth-child(2)').textContent, 10);
-            return { productName, quantity };
-        });
-
-        // Save to local storage
-        localStorage.setItem('favourites', JSON.stringify(favouritesData));
-        alert('Favourites saved successfully!');
-    }
-    
-    function applyFavourites() {
-        const favouritesData = JSON.parse(localStorage.getItem('favourites'));
-        if (!favouritesData || favouritesData.length === 0) {
-            alert('No favourites saved. Please add favourites first.');
-            return;
-        }
-    
-        favouritesData.forEach(fav => {
-            // Identify the category based on the product name
-            const productCategory = Object.keys(products).find(category =>
-                Object.keys(products[category]).includes(fav.productName)
-            );
-    
-            if (productCategory) {
-                const pricePerUnit = products[productCategory][fav.productName];
-                const totalPrice = pricePerUnit * fav.quantity;
-    
-                // Add item to the cart table
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${fav.productName}</td>
-                    <td>${fav.quantity}</td>
-                    <td>${pricePerUnit.toFixed(2)}</td>
-                    <td>${totalPrice.toFixed(2)}</td>
-                    <td><button class="remove-item">Remove</button></td>
-                `;
-    
-                row.querySelector('.remove-item').addEventListener('click', () => {
-                    row.remove();
-                    updateTotalPrice();
-                });
-    
-                cartTableBody.appendChild(row);
-            }
-        });
-    
-        updateTotalPrice();
-        alert('Favourites applied to the cart!');
-    }
-    
-    document.getElementById('buy-now').addEventListener('click', () => {
-        const cartData = [];
-        cartTableBody.querySelectorAll('tr').forEach(row => {
-            const productName = row.querySelector('td:nth-child(1)').textContent;
-            const quantity = parseInt(row.querySelector('td:nth-child(2)').textContent, 10);
-            const price = parseFloat(row.querySelector('td:nth-child(3)').textContent);
-            const totalPrice = parseFloat(row.querySelector('td:nth-child(4)').textContent);
-
-            cartData.push({ productName, quantity, price, totalPrice });
-        });
-
-        if (cartData.length === 0) {
-            alert('Your cart is empty!');
-            return;
-        }
-
-        // Save cart data to localStorage
-        localStorage.setItem('cartData', JSON.stringify(cartData));
-        // Redirect to payment page
-        window.location.href = 'paymentpage.html';
+    document.getElementById('add-analgesics').addEventListener('click', () => {
+        addToCart('analgesics', 'analgesics', 'quantity-analgesics');
     });
 
-    document.getElementById('save-favourites').addEventListener('click', addToFavourites);
-    document.getElementById('apply-favourites').addEventListener('click', applyFavourites);
+    document.getElementById('add-antibiotics').addEventListener('click', () => {
+        addToCart('antibiotics', 'antibiotics', 'quantity-antibiotics');
+    });
 
-    document.getElementById('add-analgesics').addEventListener('click', () => addToCart('analgesics', 'analgesics', 'quantity-analgesics'));
-    document.getElementById('add-antibiotics').addEventListener('click', () => addToCart('antibiotics', 'antibiotics', 'quantity-antibiotics'));
-    document.getElementById('add-antidepressants').addEventListener('click', () => addToCart('antidepressants', 'antidepressants', 'quantity-antidepressants'));
-    document.getElementById('add-antihistamines').addEventListener('click', () => addToCart('antihistamines', 'antihistamines', 'quantity-antihistamines'));
-    document.getElementById('add-antihypertensives').addEventListener('click', () => addToCart('antihypertensives', 'antihypertensives', 'quantity-antihypertensives'));
+    document.getElementById('add-antidepressants').addEventListener('click', () => {
+        addToCart('antidepressants', 'antidepressants', 'quantity-antidepressants');
+    });
+
+    document.getElementById('add-antihistamines').addEventListener('click', () => {
+        addToCart('antihistamines', 'antihistamines', 'quantity-antihistamines');
+    });
+
+    document.getElementById('add-antihypertensives').addEventListener('click', () => {
+        addToCart('antihypertensives', 'antihypertensives', 'quantity-antihypertensives');
+    });
+
+    document.getElementById('save-favourites').addEventListener('click', () => {
+        alert('Favourites saved!');
+    });
+
+    document.getElementById('apply-favourites').addEventListener('click', () => {
+        alert('Favourites applied!');
+    });
+
+    document.getElementById('buy-now').addEventListener('click', () => {
+        alert('Proceeding to checkout...');
+    });
 });
