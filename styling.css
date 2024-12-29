@@ -1,0 +1,341 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(129, 162, 251);
+    color: white;
+}
+
+.brand {
+    font-size: 1.5rem;
+}
+
+.searchbar {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar input {
+    width: 100%;
+    max-width: 300px;
+    padding: 5px;
+}
+
+.icons {
+    flex: 1 1 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icons a {
+    margin: 0 5px;
+}
+
+h4 {
+    color: red;
+    font-style: italic;
+}
+
+/* Main section */
+.order-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.product-section {
+    background-color: skyblue;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 20px);
+    max-width: 300px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* Order table */
+.order {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.order th, .order td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.order th {
+    background-color: rgb(129, 162, 251);
+}
+
+.order td {
+    background-color: lightblue;
+}
+
+.footer {
+    background-color: rgb(129, 162, 251); /* Green background */
+    color: white;             /* White text */
+    text-align: center;       /* Center the text */
+    padding: 20px;            /* Padding for spacing */
+    width: 100%;              /* Full width */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Shadow for a subtle effect */
+}
+
+.footer h4 {
+    margin: 0;                /* Remove default margin */
+    font-size: 18px;          /* Font size for the title */
+    font-weight: normal;      /* Normal font weight */
+}
+
+.footer p {
+    margin: 10px 0 0;         /* Add some margin above the copyright text */
+    font-size: 14px;          /* Adjust font size for the copyright text */
+}
+
+@media (max-width: 768px) {
+    .footer h4 {
+        font-size: 16px;      /* Slightly smaller font size for smaller screens */
+    }
+    
+    .footer p {
+        font-size: 12px;      /* Slightly smaller font size for smaller screens */
+    }
+}
+
+
+/* Buttons */
+button {
+    background-color: rgb(8, 102, 8);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .searchbar input {
+        width: 100%;
+    }
+
+    .icons {
+        justify-content: center;
+    }
+
+    .order-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-col {
+        flex: 1 1 100%;
+    }
+
+    .product-section {
+        width: 100%;
+    }
+
+    .order {
+        width: 100%;
+    }
+}
+
+/* Make all images responsive */
+img {
+    max-width: 100%; /* Ensure images do not exceed their container's width */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Prevent extra space below images */
+}
+
+/* Optional: Adjust icon size */
+.icons img {
+    max-width: 40px; /* Limit the size for icons */
+    height: auto;
+}
+
+/* Make the logo in the header responsive */
+.logo img {
+    max-width: 100%; /* Ensure the logo scales within the header */
+    height: auto;
+}
+
+/* Make images inside product sections responsive */
+.product-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Adjust footer logo or any image inside the footer */
+.footer img {
+    max-width: 80px; /* Limit the size of any image in the footer */
+    height: auto;
+}
+
+/* Form Styling */
+.entire-form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form .submit-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form .submit-btn button {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Table Styling */
+.order {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.order th, .order td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .searchbar {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    header .searchbar input {
+        margin-bottom: 10px;
+    }
+
+    .order th, .order td {
+        font-size: 14px;
+    }
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Add space between the options */
+}
+
+.payment-options > div {
+    flex: 1; /* Make each option take equal space */
+    max-width: 45%; /* Optional: Set a max width for better control */
+}
+
+#card-details {
+    margin-top: 10px; /* Space below the radio button */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+form .submit-btn button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form .submit-btn button:hover {
+    background-color: #0056b3;
+}
+
+#card-details {
+    transition: all 0.3s ease-in-out;
+}

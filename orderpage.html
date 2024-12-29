@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Medi-Care Pharmacy</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+    <header class="home">
+        <div class="brand">Medi-Care Pharmacy</div>
+        <div class="searchbar">
+            <input type="text" placeholder="Search For Products...">
+            <button type="text" value="Search" class="search">Search</button>
+        </div>
+        <div class="icons">
+            <a href="#signin">
+                <img src="Images/login.png" alt="Sign In">
+            </a>
+            <a href="Order.html">
+                <img src="Images/cart.png" alt="Cart">
+            </a>
+        </div>
+    </header>
+
+    <div class="order-section">
+        <div class="product-section">
+            <label for="analgesics"><h2>Analgesics</h2></label>
+            <select id="analgesics">
+              <option value="">Click to choose</option>
+              <option value="Paracetamol">Paracetamol</option>
+              <option value="Ibuprofen">Ibuprofen</option>
+              <option value="Aspirin">Aspirin</option>
+              <option value="Naproxen">Naproxen</option>
+              <option value="Morphine">Morphine</option>
+              <option value="Codeine">Codeine</option>
+            </select><br><br>
+            <label for="quantity-analgesics">Quantity: </label><br><br>
+            <input type="number" id="quantity-analgesics" min="1" step="1" required><br><br>
+            <h4>*the price is for one card.</h4>
+            <button id="add-analgesics">Add to cart</button>
+        </div>
+
+        <div class="product-section">
+            <label for="antibiotics"><h2>Antibiotics</h2></label>
+            <select id="antibiotics">
+              <option value="">Click to choose</option>
+              <option value="Amoxicillin">Amoxicillin</option>
+              <option value="Doxycycline">Doxycycline</option>
+              <option value="Cephalexin">Cephalexin</option>
+              <option value="Erythromycin">Erythromycin</option>
+              <option value="Ciprofloxacin">Ciprofloxacin</option>
+              <option value="Gentamicin">Gentamicin</option>
+            </select><br><br>
+            <label for="quantity-antibiotics">Quantity: </label><br><br>
+            <input type="number" id="quantity-antibiotics" min="1" step="1" required><br><br>
+            <h4>*the price is for one card.</h4>
+            <button id="add-antibiotics">Add to cart</button>
+        </div>
+
+        <div class="product-section">
+            <label for="antidepressants"><h2>Antidepressants</h2></label>
+            <select id="antidepressants">
+                <option value="">Click to choose</option>
+                <option value="Sertraline">Sertraline</option>
+                <option value="Fluoxetine">Fluoxetine</option>
+                <option value="Escitalopram">Escitalopram</option>
+                <option value="Venlafaxine">Venlafaxine</option>
+                <option value="Amitriptyline">Amitriptyline</option>
+                <option value="Duloxetine">Duloxetine</option>
+            </select><br><br>
+            <label for="quantity-antidepressants">Quantity: </label><br><br>
+            <input type="number" id="quantity-antidepressants" min="1" step="1" required><br><br>
+            <h4>*the price is for one card.</h4>
+            <button id="add-antidepressants">Add to cart</button>
+        </div>
+
+        <div class="product-section">
+            <label for="antihistamines"><h2>Antihistamines</h2></label>
+            <select id="antihistamines">
+              <option value="">Click to choose</option>
+              <option value="Cetirizine">Cetirizine</option>
+              <option value="Loratadine">Loratadine</option>
+              <option value="Diphenhydramine">Diphenhydramine</option>
+              <option value="Fexofenadine">Fexofenadine</option>
+              <option value="Chlorpheniramine">Chlorpheniramine</option>
+            </select><br><br>
+            <label for="quantity-antihistamines">Quantity: </label><br><br>
+            <input type="number" id="quantity-antihistamines" min="1" step="1" required><br><br>
+            <h4>*the price is for one card.</h4>
+            <button id="add-antihistamines">Add to cart</button>
+        </div>
+
+        <div class="product-section">
+            <label for="antihypertensives"><h2>Antihypertensives</h2></label>
+            <select id="antihypertensives">
+              <option value="">Click to choose</option>
+              <option value="Enalapril">Enalapril</option>
+              <option value="Losartan">Losartan</option>
+              <option value="Metoprolol">Metoprolol</option>
+              <option value="Amlodipine">Amlodipine</option>
+              <option value="Hydrochlorothiazide">Hydrochlorothiazide</option>
+              <option value="Spironolactone">Spironolactone</option>
+            </select><br><br>
+            <label for="quantity-antihypertensives">Quantity: </label><br><br>
+            <input type="number" id="quantity-antihypertensives" min="1" step="1" required><br><br>
+            <h4>*the price is for one card.</h4>
+            <button id="add-antihypertensives">Add to cart</button>
+        </div>    
+    </div>
+
+    <table class="order">
+      <thead>
+          <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total Price</th>
+              <th></th> <!-- Added Action column for the Remove button -->
+          </tr>
+      </thead>  
+      <tbody>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="4"><strong>Total Price:</strong></td>
+              <td id="total-price">0.00</td>
+          </tr>
+      </tfoot>
+  </table>
+
+    <div class="buttons">
+      <button id="save-favourites">Save Favourites</button>
+      <button id="apply-favourites">Apply Favourites</button>
+      <button id="buy-now">Buy Now</button>
+    </div><br><br>
+
+    <footer class="footer">
+      <div class="footer-content">
+          <h2>Medi-Care Pharmacy</h2>
+          <p>&copy; 2025 All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script src="Javascript/order.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+    <header class="home">
+        <div class="brand">Medi-Care Pharmacy</div>
+        <div class="searchbar">
+            <input type="text" placeholder="Search For Products...">
+            <button type="text" value="Search" class="search">Search</button>
+        </div>
+        <div class="icons">
+            <a href="#signin">
+                <img src="Images/login.png" alt="Sign In">
+            </a>
+            <a href="#cart">
+                <img src="Images/cart.png" alt="Cart">
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="entire-form">
+            <div class="form-container">
+                <h2>Your Order</h2>
+                <table class="order">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-details"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3"><strong>Total Price:</strong></td>
+                            <td id="total-price">0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <form id="order-form">
+                    <fieldset>
+                        <legend>Customer Details</legend>
+                        <div class="form-group">
+                            <label for="customer-name">Customer Name:</label>
+                            <input type="text" id="customer-name" name="customer_name" required placeholder="Mark">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-email">Customer E-mail:</label>
+                            <input type="email" id="customer-email" name="customer_email" required placeholder="someone@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-phone">Customer Phone:</label>
+                            <input type="tel" id="customer-phone" name="customer_phone" required pattern="[0-9]{10}" placeholder="Enter 10 digit number...">
+                        </div>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend>Delivery Details</legend>
+                        <div class="form-group">
+                            <label for="customer-address">Delivery Address:</label>
+                            <textarea id="delivery-address" name="delivery_address" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="District">District:</label>
+                            <input type="text" id="District" name="District" required>
+                        </div>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend>Select Payment Method</legend>
+                        <div class="form-group">
+                            <div class="payment-options">
+                                <div>
+                                    <input type="radio" id="card" name="payment_method" value="card" required>
+                                    <label for="card">Card</label>
+                                </div>
+                                <div id="card-details" style="display: none;">
+                                    <label for="card-type">Card Type:</label>
+                                    <select id="card-type" name="card_type">
+                                        <option value="visa">Visa</option>
+                                        <option value="mastercard">MasterCard</option>
+                                        <option value="amex">American Express</option>
+                                    </select>
+                                    <label for="card-number">Card No:</label>
+                                    <input type="text" id="card-number" name="card_number" required pattern="\d{16}" placeholder="Enter 16-digit card number">
+                                    <label for="card-expiry">Expiry Date:</label>
+                                    <input type="month" id="card-expiry" name="card_expiry" required>
+                                    <label for="card-cvv">CVV:</label>
+                                    <input type="text" id="card-cvv" name="card_cvv" required pattern="\d{3}" placeholder="3-digit code">
+                                </div>
+                                <div>
+                                    <input type="radio" id="cash" name="payment_method" value="cash">
+                                    <label for="cash">Cash On Delivery</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>                    
+                    <div class="submit-btn">
+                        <button type="submit">Confirm Order</button>
+                    </div>
+                </form>
+                <div id="delivery-info" style="display:none;">
+                    <h2>Order Confirmation</h2>
+                    <p>Thank you for placing your order at Medi-Care Pharmacy!</p>
+                    <p>Your Order will be delivered within 36 hours.</p>
+                    <p>Estimated delivery date: <span id="delivery-date"></span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Medi-Care Pharmacy</h2>
+            <p>&copy; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="Javascript/script.js"></script>
+</body>
+</html>
