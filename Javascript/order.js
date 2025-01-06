@@ -192,6 +192,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listeners for saving and applying favourites
     document.getElementById('save-favourites').addEventListener('click', saveFavourites);
     document.getElementById('apply-favourites').addEventListener('click', applyFavourites);
+
+    function savetofav(){
+        if (isCartEmpty()) {
+            alert('Your cart is empty. Please add items before saving.');
+            return;
+        }
+
+        const cartItems = [];
+        cartTableBody.querySelectorAll('tr').forEach(row => {
+            const productName = row.querySelector('td:nth-child(1)').textContent;
+            const quantity = row.querySelector('td:nth-child(2)').textContent;
+            const pricePerUnit = row.querySelector('td:nth-child(3)').textContent;
+            const totalPrice = row.querySelector('td:nth-child(4)').textContent;
+            cartItems.push({ productName, quantity, pricePerUnit, totalPrice });
+        });
+
+        // Save the cart items to localStorage
+        localStorage.setItem('pushtopaymentpage', JSON.stringify(cartItems));
+        alert('Proceeding to payment page');
+
+    }
     
     // Buy Now button
     document.getElementById('buy-now').addEventListener('click', () => {
@@ -199,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Your cart is empty. Please add items before proceeding.');
         } else {
             // Save the cart items to localStorage before redirecting
-            saveFavourites();
+            savetofav();
     
             // Redirect to checkout page
             window.location.href = 'paymentpage.html';  // Replace with your checkout URL
