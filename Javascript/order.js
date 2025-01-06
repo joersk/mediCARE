@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTableBody = document.querySelector('table.order tbody');
     const totalPriceElement = document.getElementById('total-price');
+    const saveFavourites = document.getElementById('save-favourites');
+    const applyFavourites = document.getElementById('apply-favourites');
 
     // Products data
     const products = {
