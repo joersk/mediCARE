@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartTableBody = document.querySelector('table.order tbody');
     const totalPriceElement = document.getElementById('total-price');
-    const saveFavourites = document.getElementById('save-favourites');
-    const applyFavourites = document.getElementById('apply-favourites');
 
     // Products data
     const products = {
@@ -192,8 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Event listeners for saving and applying favourites
-    document.getElementById('save-favourites').addEventListener('click', saveFavourites);
-    document.getElementById('apply-favourites').addEventListener('click', applyFavourites);
+    let savfavbtn= document.getElementById('save-favourites')
+    savfavbtn.addEventListener('click', saveFavourites);
+    let appylyfavbtn=document.getElementById('apply-favourites')
+    appylyfavbtn.addEventListener('click', applyFavourites);
 
     function savetofav(){
         if (isCartEmpty()) {
