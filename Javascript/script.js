@@ -99,6 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (cardRadio.checked) {
+            const expiryDate = new Date(cardExpiryInput.value + "-01");
+            const today = new Date();
+            today.setDate(1); // Set to the first day of the current month
+
             if (!cardNumberInput.value.trim() || !cardNumberInput.checkValidity()) {
                 alert("Please enter a valid 16-digit card number.");
                 return false;
@@ -106,6 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!cardExpiryInput.value.trim()) {
                 alert("Please enter the card expiry date.");
                 return false;
+            }
+            if (expiryDate <= today) {
+                alert("The card expiry date must be after the current month.")
+                return;
             }
             if (!cardCVVInput.value.trim() || !cardCVVInput.checkValidity()) {
                 alert("Please enter a valid 3-digit CVV.");
